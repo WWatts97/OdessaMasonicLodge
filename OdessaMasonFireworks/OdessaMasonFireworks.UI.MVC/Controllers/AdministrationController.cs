@@ -1,9 +1,9 @@
-﻿using [YourProjectName].UI.MVC.Models;
+﻿using OdessaMasonFireworks.UI.MVC.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace [YourProjectName].UI.MVC.Controllers//Update namespace
+namespace OdessaMasonFireworks.UI.MVC.Controllers//Update namespace
 {
     [Authorize(Roles = "Admin")]
     public class AdministrationController : Controller
