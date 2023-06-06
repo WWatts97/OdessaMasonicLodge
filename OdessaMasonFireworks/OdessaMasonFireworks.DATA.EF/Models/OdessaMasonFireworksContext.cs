@@ -29,7 +29,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public virtual DbSet<OrderProduct> OrderProducts { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductType> ProductTypes { get; set; } = null!;
-        public virtual DbSet<ProductType1> ProductTypes1 { get; set; } = null!;
+        public virtual DbSet<ProductType> ProductTypes1 { get; set; } = null!;
         public virtual DbSet<Sale> Sales { get; set; } = null!;
         public virtual DbSet<SaleProduct> SaleProducts { get; set; } = null!;
 
@@ -268,7 +268,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
                 entity.Property(e => e.TypeName).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<ProductType1>(entity =>
+            modelBuilder.Entity<ProductType>(entity =>
             {
                 entity.HasKey(e => e.TypeId)
                     .HasName("PK__ProductT__516F0395788625C8");

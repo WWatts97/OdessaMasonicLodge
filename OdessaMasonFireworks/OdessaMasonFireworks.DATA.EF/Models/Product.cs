@@ -26,7 +26,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public string? ProductImage { get; set; }
 
         public virtual Brand? Brand { get; set; }
-        public virtual ProductType1? Type { get; set; }
+        public virtual ProductType? Type { get; set; }
         public virtual ICollection<OrderProduct> OrderProducts { get; set; }
         public virtual ICollection<SaleProduct> SaleProducts { get; set; }
     }
