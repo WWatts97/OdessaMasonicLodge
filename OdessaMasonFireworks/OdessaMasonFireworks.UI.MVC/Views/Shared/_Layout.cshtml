@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Odessa Mason's</title>
+    <title>@ViewData["Title"] | Odessa Masons</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="~/assets/573-5737790_masonic-square-and-compasses-square-and-compass.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/css/Custom.css" rel="stylesheet"/>
     <!-- Datatables Styling-->
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
     <!-- DataTables Buttons Style-->
@@ -21,40 +22,25 @@
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-blue">
+            <div class="container px-5 ">
+                <a class="navbar-brand custom-gold" href="index.html">Mount Hope Masonic Lodge #476</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link custom-gold" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link custom-gold" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link custom-gold" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link custom-gold" href="faq.html">FAQ</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                <li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>
-                                <li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fireworks</a>
+                            <a class="nav-link dropdown-toggle custom-gold" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Fireworks</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Brands">Brands</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Customers">Customers</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Members">Members</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Orders">Orders</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="OrderProducts">Order Products</a>
-                                <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Products">Fireworks</a>
+                                <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Fireworks">Fireworks</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="ProductTypes">Product Typess</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="Sales">Sales</a>
                                 <a class="nav-link text-bg-danger" asp-action="Index" asp-controller="SaleProducts">SaleProducts</a>
@@ -67,10 +53,10 @@
         @RenderBody()
     </main>
     <!-- Footer-->
-    <footer class="bg-dark py-4 mt-auto">
+    <footer class="bg-dark py-4 mt-auto custom-blue custom-gold">
         <div class="container px-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                <div class="col-auto"><div class="small m-0">Copyright &copy; Mount Hope Masonic Lodge #476 (@DateTime.Now.Year)</div></div>
                 <div class="col-auto">
                     <a class="link-light small" href="#!">Privacy</a>
                     <span class="text-white mx-1">&middot;</span>

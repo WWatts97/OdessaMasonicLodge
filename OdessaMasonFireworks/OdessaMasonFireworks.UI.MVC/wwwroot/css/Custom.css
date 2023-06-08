@@ -1,0 +1,18 @@
+﻿.custom-blue {
+    background-color: /*#B59410*/ /*midnightblue*/ darkblue !important;
+    outline: solid;
+    outline-color: #B59410;
+    padding: -5px -5px 0px -5px;
+}
+
+.custom-gold {
+    color: /*#B59410*/ goldenrod !important;
+}
+
+a.custom-gold {
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+a.custom-gold:hover {
+    color: #fff !important;
+}

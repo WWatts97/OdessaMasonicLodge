@@ -1,0 +1,98 @@
+﻿@model IEnumerable<OdessaMasonFireworks.DATA.EF.Models.Product>
+
+@{
+    ViewData["Title"] = "Fireworks Inventory";
+}
+
+<header class="py-3" style="background-image: url(/assets/fireworks.jpg); background-size: cover;">
+    <div class="container px-4">
+        <div class="text-center custom-gold">
+            <h1 class="display-4 fw-bolder">All Fireworks</h1>
+        </div>
+    </div>
+</header>
+
+    <a class="offset-2 btn btn-warning btn-outline-dark my-1" asp-action="Create">Add New Firework</a>
+
+<div class="container">
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.ProductImage)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.PricePerUnit)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.CostPerUnit)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.UnitsOrdered)
+                    </thv>
+                <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Brand)
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center align-middle">
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.ProductId">@Html.DisplayFor(modelItem => item.ProductName)</a>
+                    </td>
+                    <td class="text-center">
+                        @if (item.ProductImage == null)
+                        {
+                            <img src="~/images/t_NoImage.png" alt="No Image" class="img-fluid" />
+                        }
+                        else
+                        {
+                            <img src="~/images/t_@item.ProductImage" alt="@item.Description" class="img-fluid" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PricePerUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CostPerUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitsOrdered)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type.TypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+}
