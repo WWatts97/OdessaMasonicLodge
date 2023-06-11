@@ -183,13 +183,13 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         [DisplayFormat(NullDisplayText = "[N/A]")]
         public short? BoxesPerCase { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = true, NullDisplayText = "[N/A]")]
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
         [Range(0, (double)decimal.MaxValue)]
         [DataType(DataType.Currency)]
         [Display(Name = "Cost Per Unit")]
         public decimal? CostPerUnit { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = true, NullDisplayText = "[N/A]")]
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
         [Range(0, (double)decimal.MaxValue)]
         [DataType(DataType.Currency)]
         [Display(Name = "Price Per Unit")]
