@@ -113,7 +113,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         [DataType(DataType.Date)]
         public DateTime? OrderDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = true, NullDisplayText = "0.00")]
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "0.00")]
         [Display(Name = "Order Total")]
         [DataType(DataType.Currency)]
         [Range(0, (double)decimal.MaxValue)]
@@ -184,7 +184,6 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public short? BoxesPerCase { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
-        [Range(0, (double)decimal.MaxValue)]
         [DataType(DataType.Currency)]
         [Display(Name = "Cost Per Unit")]
         public decimal? CostPerUnit { get; set; }
@@ -199,6 +198,11 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         [Display(Name = "Image")]
         [StringLength(100)]
         public string? ProductImage { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Suggested Price")]
+        public decimal? Price { get; set; }
     }
 
     public class ProductTypeMetadata
@@ -206,7 +210,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public int TypeId { get; set; }
 
         [Required]
-        [Display(Name = "Type Of Firework")]
+        [Display(Name = "Type of Firework")]
         [StringLength(50)]
         public string TypeName { get; set; } = null!;
 
@@ -217,18 +221,19 @@ namespace OdessaMasonFireworks.DATA.EF.Models
 
     public class SaleMetadata
     {
+        [Display(Name = "Sale ID")]
         public int SaleId { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Sales Date")]
+        [Display(Name = "Sale Date")]
         public DateTime SaleDate { get; set; }
 
         [Required]
         [Display(Name = "Customer")]
         public int CustomerId { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = true, NullDisplayText = "0.00")]
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "0.00")]
         [DataType(DataType.Currency)]
         [Range(0, (double)decimal.MaxValue)]
         [Display(Name = "Sale Total")]

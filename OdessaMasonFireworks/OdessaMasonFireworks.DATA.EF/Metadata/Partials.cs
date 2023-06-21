@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace OdessaMasonFireworks.DATA.EF.Models
 {
@@ -14,6 +15,10 @@ namespace OdessaMasonFireworks.DATA.EF.Models
     {
         [NotMapped]
         public IFormFile? Image { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
+        [DataType(DataType.Currency)]
+        public decimal? Price { get { return CostPerUnit * .8m; } }
     }
 
     [ModelMetadataType(typeof(BrandMetadata))]

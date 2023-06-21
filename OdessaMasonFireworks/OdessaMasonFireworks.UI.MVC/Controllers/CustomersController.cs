@@ -135,6 +135,16 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
             return View(customer);
         }
 
+        public JsonResult AjaxDelete(int id)
+        {
+            Customer customer = _context.Customers.Find(id);
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+
+            string confirmMessage = $"Deleted {customer.FirstName + " " + customer.LastName} from the database.";
+            return Json(new { id = id, message = confirmMessage });
+        }
+
         // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

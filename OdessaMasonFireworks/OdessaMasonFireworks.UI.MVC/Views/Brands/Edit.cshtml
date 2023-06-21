@@ -1,15 +1,18 @@
 ﻿@model OdessaMasonFireworks.DATA.EF.Models.Brand
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit " + Model.BrandName;
 }
-
-<h1>Edit</h1>
-
-<h4>Brand</h4>
+<header class="py-3" style="background-image: url(/assets/fireworks.jpg); background-size: cover;">
+    <div class="container px-4">
+        <div class="text-center custom-gold">
+            <h1 class="display-4 fw-bolder">Edit @Model.BrandName</h1>
+        </div>
+    </div>
+</header>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 offset-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="BrandId" />
@@ -18,16 +21,18 @@
                 <input asp-for="BrandName" class="form-control" />
                 <span asp-validation-for="BrandName" class="text-danger"></span>
             </div>
+            <hr />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-warning btn-outline-dark" />
             </div>
         </form>
+        <div class="my-2">
+            <a asp-action="Index">Back to List</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

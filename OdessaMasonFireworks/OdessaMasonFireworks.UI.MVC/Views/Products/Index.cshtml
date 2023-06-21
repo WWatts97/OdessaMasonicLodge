@@ -20,8 +20,8 @@
 
     <a class="offset-2 btn btn-warning btn-outline-dark my-2" asp-action="Create">Add New Firework</a>
 
-<div class="container">
-    <table class="table" id="myTable">
+<div class="container mb-3">
+    <table class="table table-hover" id="myTable">
         <thead>
             <tr>
                 <th class="text-center">
@@ -31,17 +31,20 @@
                     @Html.DisplayNameFor(model => model.ProductImage)
                 </th>
                 <th class="text-center">
-                    @Html.DisplayNameFor(model => model.PricePerUnit)
+                    @Html.DisplayNameFor(model => model.Price)
                 </th>
                 <th class="text-center">
                     @Html.DisplayNameFor(model => model.CostPerUnit)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.PricePerUnit)
                 </th>
                 <th class="text-center">
                     @Html.DisplayNameFor(model => model.UnitsInStock)
                 </th>
                 <th class="text-center">
                     @Html.DisplayNameFor(model => model.UnitsOrdered)
-                    </thv>
+                    </th>
                 <th class="text-center">
                         @Html.DisplayNameFor(model => model.Type)
                 </th>
@@ -69,10 +72,13 @@
                         }
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PricePerUnit)
+                        @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CostPerUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PricePerUnit)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.UnitsInStock)

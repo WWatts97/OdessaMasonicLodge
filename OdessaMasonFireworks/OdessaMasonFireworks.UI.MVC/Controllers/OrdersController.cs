@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using OdessaMasonFireworks.DATA.EF.Models;
 
 namespace OdessaMasonFireworks.UI.MVC.Controllers
@@ -133,6 +134,16 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
             }
 
             return View(order);
+        }
+
+        public JsonResult AjaxDelete(int id)
+        {
+            Order order = _context.Orders.Find(id);
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
+
+            string confirmMessage = $"Deleted Order #{order.Ponumber} from the database.";
+            return Json(new { id = id, message = confirmMessage });
         }
 
         // POST: Orders/Delete/5

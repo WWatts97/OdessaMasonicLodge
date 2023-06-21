@@ -1,47 +1,86 @@
 ﻿@model IEnumerable<OdessaMasonFireworks.DATA.EF.Models.OrderProduct>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "OrderProducts";
 }
 
-<h1>Index</h1>
+<header class="py-3" style="background-image: url(/assets/fireworks.jpg); background-size: cover;">
+    <div class="container px-4">
+        <div class="text-center custom-gold">
+            <h1 class="display-4 fw-bolder">OrderProducts</h1>
+        </div>
+    </div>
+</header>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderQuantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderQuantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order.OrderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.OrderProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.OrderProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.OrderProductId">Delete</a>
-            </td>
-        </tr>
+<div class="row">
+    <div class="offset-3 col-md-6 mt-2">
+        <div id="MessageContent" class="text-center"></div>
+    </div>
+</div>
+
+<a class="offset-2 btn btn-warning btn-outline-dark my-2" asp-action="Create">Add New OrderProduct</a>
+
+<div class="container mb-3">
+    <table class="table table-hover" id="myTable">
+        <thead>
+            <tr>
+                <th class="text-center">
+                    Order ID
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th class="text-center">
+                    @Html.DisplayNameFor(model => model.OrderQuantity)
+                </th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-center align-middle" id="OrderProduct-@item.OrderProductId">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderQuantity)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.OrderProductId">Edit</a> |
+                        <a data-ajax="true" data-ajax-confirm="Are you sure you want to delete ProductOrder #@item.OrderProductId?" data-ajax-failure="deleteFailed" data-ajax-success="deleteConfirmed" data-ajax-method="POST" href="~/OrderProducts/AjaxDelete/@item.OrderProductId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+
+        <script>
+            let table = new DataTable('#myTable');
+        </script>
+        <script>
+            function deleteConfirmed(response, status, data) {
+                //Remove the category's row from the table
+                let rowId = "#OrderProduct-" + response.id;
+                console.log(rowId)
+                $("#myTable").find(rowId).remove();
+
+                //Display a status message
+                $("#MessageContent").html("<div class='alert alert-success'>" + response.message + "</div>");
+
+            }
+
+            function deleteFailed(response, status, data) {
+
+                //Display a status message
+                $("#MessageContent").html("<div class='alert alert-danger'>Delete unsuccessful.</div>");
+
+            }
+        </script>
 }
-    </tbody>
-</table>
