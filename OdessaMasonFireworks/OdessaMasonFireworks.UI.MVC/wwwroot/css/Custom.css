@@ -16,3 +16,18 @@ a.custom-gold {
 a.custom-gold:hover {
     color: #fff !important;
 }
+
+.lodge {
+    z-index: -100000000000000000000000000000;
+    width: 100vw;
+    height: 150vh;
+}
+
+.t {
+    opacity: .9;
+}
+
+.insignia {
+    width: 500px !important;
+    height: 500px !important;
+}

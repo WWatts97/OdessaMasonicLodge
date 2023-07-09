@@ -18,7 +18,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
 
         [DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = false, NullDisplayText = "[N/A]")]
         [DataType(DataType.Currency)]
-        public decimal? Price { get { return CostPerUnit * .8m; } }
+        public decimal? Price { get { return CostPerUnit * 1.8m; } }
     }
 
     [ModelMetadataType(typeof(BrandMetadata))]
