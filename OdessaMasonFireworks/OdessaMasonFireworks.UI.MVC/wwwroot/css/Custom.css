@@ -45,3 +45,16 @@ a.custom-gold:hover {
         opacity: 1;
     }
 }
+
+@media (max-wdith: 767px) {
+    
+}
+@media (max-width: 991px) {
+    .smallcenter {
+        text-align: center;
+    }
+    
+    nav {
+        
+    }
+}
