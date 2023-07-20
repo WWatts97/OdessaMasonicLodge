@@ -28,7 +28,10 @@ namespace OdessaMasonFireworks.DATA.EF.Models
     public partial class Customer { }
 
     [ModelMetadataType(typeof(MemberMetadata))]
-    public partial class Member { }
+    public partial class Member {
+        [NotMapped]
+        public IFormFile? Image { get; set; }
+    }
 
     [ModelMetadataType(typeof(OrderMetadata))]
     public partial class Order { }

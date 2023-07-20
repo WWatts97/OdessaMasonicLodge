@@ -12,10 +12,15 @@
     </div>
 </header>
 
-<div>
-    <hr />
+<div class="bg-white">
     <div class="col-md-6 offset-3">
         <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MemberId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MemberId)
+            </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.FirstName)
             </dt>
@@ -75,6 +80,25 @@
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Phone)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MemberImage)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MemberImage)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+            <dd class="col-sm-10">
+                @if (Model.MemberImage == null)
+                {
+                        <img src="~/images/NoImage.png" alt="No Image Available" class="img-fluid" />                    
+                }
+                else
+                {
+                        <img src="~/images/@Model.MemberImage" alt=""   class="img-fluid" /> 
+                }
             </dd>
             <div>
                 <a asp-action="Edit" asp-route-id="@Model?.MemberId">Edit</a> |

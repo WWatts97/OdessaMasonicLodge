@@ -13,76 +13,76 @@
 </header>
 
 <div class="row">
-    <div class="offset-3 col-md-6 mt-2">
+    <div class="offset-3 col-md-6">
         <div id="MessageContent" class="text-center"></div>
     </div>
 </div>
+<div class="bg-white t">
+    <a class="offset-2 btn btn-warning btn-outline-dark my-2" asp-action="Create">Add New Member</a>
 
-<a class="offset-2 btn btn-warning btn-outline-dark my-2" asp-action="Create">Add New Member</a>
-
-<div class="container mb-3">
-    <table class="table table-hover text-center" id="myTable">
-        <thead>
-            <tr>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Position)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.JoinDate)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.Phone)
-                </th>
-                <th class="text-center">
-                    @Html.DisplayNameFor(model => model.City)
-                </th>
-                <th class="text-center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr class="text-center align-middle" id="Member-@item.MemberId">
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.MemberId">@Html.DisplayFor(modelItem => item.FirstName)</a>
-                    </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.MemberId">@Html.DisplayFor(modelItem => item.LastName)</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Position)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.JoinDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.City)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
-                        <a data-ajax="true" data-ajax-confirm="Are you sure you want to delete @item.FirstName @item.LastName?" data-ajax-failure="deleteFailed" data-ajax-success="deleteConfirmed" data-ajax-method="POST" href="~/Members/AjaxDelete/@item.MemberId">Delete</a>
-                    </td>
+    <div class="container mb-3">
+        <table class="table table-hover text-center" id="myTable">
+            <thead>
+                <tr>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Position)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.JoinDate)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th class="text-center">
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                    <th class="text-center">Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center align-middle" id="Member-@item.MemberId">
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.MemberId">@Html.DisplayFor(modelItem => item.FirstName)</a>
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.MemberId">@Html.DisplayFor(modelItem => item.LastName)</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.JoinDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.MemberId">Edit</a> |
+                            <a data-ajax="true" data-ajax-confirm="Are you sure you want to delete @item.FirstName @item.LastName?" data-ajax-failure="deleteFailed" data-ajax-success="deleteConfirmed" data-ajax-method="POST" href="~/Members/AjaxDelete/@item.MemberId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
-
 @section Scripts {
 
     <script>

@@ -98,6 +98,11 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         [StringLength(20)]
         [DataType(DataType.PhoneNumber)]
         public string? Phone { get; set; }
+
+        [DisplayFormat(NullDisplayText = "[N/A]")]
+        [Display(Name = "Image")]
+        [StringLength(100)]
+        public string? MemberImage { get; set; }
     }
 
     public class OrderMetadata

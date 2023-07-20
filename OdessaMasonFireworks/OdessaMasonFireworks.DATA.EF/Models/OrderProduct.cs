@@ -10,7 +10,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public int ProductId { get; set; }
         public short OrderQuantity { get; set; }
 
-        public virtual Order? Order { get; set; }
-        public virtual Product? Product { get; set; }
+        public virtual Order Order { get; set; } = null!;
+        public virtual Product Product { get; set; } = null!;
     }
 }

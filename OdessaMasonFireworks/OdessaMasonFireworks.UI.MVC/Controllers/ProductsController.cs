@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using OdessaMasonFireworks.DATA.EF.Models;
 using System.Drawing;//added for image-related classes
 using OdessaMasonFireworks.UI.MVC.Utilities;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace OdessaMasonFireworks.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private readonly OdessaMasonFireworksContext _context;
@@ -53,7 +56,7 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
         public IActionResult Create()
         {
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName");
-            ViewData["TypeId"] = new SelectList(_context.ProductTypes1, "TypeId", "TypeName");
+            ViewData["TypeId"] = new SelectList(_context.ProductTypes, "TypeId", "TypeName");
             return View();
         }
 
@@ -117,7 +120,7 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
-            ViewData["TypeId"] = new SelectList(_context.ProductTypes1, "TypeId", "TypeName", product.TypeId);
+            ViewData["TypeId"] = new SelectList(_context.ProductTypes, "TypeId", "TypeName", product.TypeId);
             return View(product);
         }
 
@@ -135,7 +138,7 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
                 return NotFound();
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
-            ViewData["TypeId"] = new SelectList(_context.ProductTypes1, "TypeId", "TypeName", product.TypeId);
+            ViewData["TypeId"] = new SelectList(_context.ProductTypes, "TypeId", "TypeName", product.TypeId);
             return View(product);
         }
 
@@ -217,7 +220,7 @@ namespace OdessaMasonFireworks.UI.MVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BrandId"] = new SelectList(_context.Brands, "BrandId", "BrandName", product.BrandId);
-            ViewData["TypeId"] = new SelectList(_context.ProductTypes1, "TypeId", "TypeName", product.TypeId);
+            ViewData["TypeId"] = new SelectList(_context.ProductTypes, "TypeId", "TypeName", product.TypeId);
             return View(product);
         }
 

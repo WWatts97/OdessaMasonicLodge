@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OdessaMasonFireworks.UI.MVC.Controllers//Update namespace
 {
-    [Authorize(Roles = "Admin")]
+    
     public class AdministrationController : Controller
     {
         #region Props/Ctors

@@ -29,7 +29,6 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public virtual DbSet<OrderProduct> OrderProducts { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductType> ProductTypes { get; set; } = null!;
-        public virtual DbSet<ProductType> ProductTypes1 { get; set; } = null!;
         public virtual DbSet<Sale> Sales { get; set; } = null!;
         public virtual DbSet<SaleProduct> SaleProducts { get; set; } = null!;
 
@@ -38,7 +37,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=OdessaMasonFireworks;Trusted_Connection=True;MultipleActiveResultSets=true;");
+                optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=OdessaMasonFireworks;Trusted_Connection=True;MultipleActiveResultSets=true");
             }
         }
 
@@ -180,6 +179,8 @@ namespace OdessaMasonFireworks.DATA.EF.Models
 
                 entity.Property(e => e.LastName).HasMaxLength(50);
 
+                entity.Property(e => e.MemberImage).HasMaxLength(100);
+
                 entity.Property(e => e.Phone).HasMaxLength(20);
 
                 entity.Property(e => e.Position).HasMaxLength(100);
@@ -259,21 +260,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
             modelBuilder.Entity<ProductType>(entity =>
             {
                 entity.HasKey(e => e.TypeId)
-                    .HasName("PK__ProductT__516F03956576754E");
-
-                entity.ToTable("ProductType");
-
-                entity.Property(e => e.TypeId).HasColumnName("TypeID");
-
-                entity.Property(e => e.TypeName).HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<ProductType>(entity =>
-            {
-                entity.HasKey(e => e.TypeId)
                     .HasName("PK__ProductT__516F0395788625C8");
-
-                entity.ToTable("ProductTypes");
 
                 entity.Property(e => e.TypeId).HasColumnName("TypeID");
 

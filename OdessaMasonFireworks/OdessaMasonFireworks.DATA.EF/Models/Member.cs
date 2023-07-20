@@ -16,5 +16,6 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public string? PostalCode { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
+        public string? MemberImage { get; set; }
     }
 }

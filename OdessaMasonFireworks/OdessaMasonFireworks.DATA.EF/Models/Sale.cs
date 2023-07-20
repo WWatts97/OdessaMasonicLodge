@@ -15,7 +15,7 @@ namespace OdessaMasonFireworks.DATA.EF.Models
         public int CustomerId { get; set; }
         public decimal? SaleTotal { get; set; }
 
-        public virtual Customer? Customer { get; set; }
+        public virtual Customer Customer { get; set; } = null!;
         public virtual ICollection<SaleProduct> SaleProducts { get; set; }
     }
 }
